@@ -1,0 +1,18 @@
+included:
+  - lockbox-ios
+  - lockbox-iosTests
+disabled_rules:
+  - identifier_name
+  - operator_whitespace
+  - type_name
+  - large_tuple
+opt_in_rules:
+  - opening_brace
+  - trailing_semicolon
+  - file_header
+cyclomatic_complexity: 15
+line_length: 135
+file_length:
+  warning: 450
+function_body_length: 
+  warning: 60

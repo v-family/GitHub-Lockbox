@@ -1,0 +1,31 @@
+{
+  "name": "SHS VPN",
+  "version": "0.1.8",
+  "manifest_version": 2,
+  "description": "Unblock Discord and other sites on school WiFi!",
+  "homepage_url": "http://example.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+    "management",
+    "proxy",
+    "storage"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/icon16.png"
+    },
+    "default_title": "SHS VPN",
+    "default_popup": "src/popup/popup.html"
+  }
+}

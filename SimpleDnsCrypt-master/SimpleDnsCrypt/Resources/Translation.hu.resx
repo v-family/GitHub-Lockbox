@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="default_settings_network_cards" xml:space="preserve">
+    <value>Hálózati kártyák</value>
+  </data>
+  <data name="default_settings_show_hidden_cards" xml:space="preserve">
+    <value>Rejtett kártyák megjelenítése</value>
+  </data>
+  <data name="default_settings_service_header" xml:space="preserve">
+    <value>Szolgáltatás</value>
+  </data>
+  <data name="default_settings_service" xml:space="preserve">
+    <value>DNSCrypt szolgáltatás</value>
+  </data>
+  <data name="default_settings_configuration" xml:space="preserve">
+    <value>Konfiguráció</value>
+  </data>
+  <data name="default_settings_configuration_ipv4" xml:space="preserve">
+    <value>IPv4 kiszolgáló használata</value>
+  </data>
+  <data name="default_settings_configuration_ipv4_tooltip" xml:space="preserve">
+    <value>IPv4-n keresztül elérhető szerverek használata</value>
+  </data>
+  <data name="default_settings_configuration_ipv6" xml:space="preserve">
+    <value>IPv6 kiszolgáló használata</value>
+  </data>
+  <data name="default_settings_configuration_ipv6_tooltip" xml:space="preserve">
+    <value>IPv6-on keresztül elérhető szerverek használata (ne engedélyezze, ha nincs IPv6-kapcsolat)</value>
+  </data>
+  <data name="default_settings_configuration_dnssec" xml:space="preserve">
+    <value>Csak a DNSSEC támogatással rendelkező kiszolgálók</value>
+  </data>
+  <data name="default_settings_configuration_dnssec_tooltip" xml:space="preserve">
+    <value>A kiszolgálónak támogatnia kell a DNS biztonsági bővítményeket</value>
+  </data>
+  <data name="default_settings_configuration_nolog" xml:space="preserve">
+    <value>Csak a naplózás nélküli kiszolgálók</value>
+  </data>
+  <data name="default_settings_configuration_nolog_tooltip" xml:space="preserve">
+    <value>A szervernek nem kell naplóznia a felhasználói lekérdezések</value>
+  </data>
+  <data name="default_settings_configuration_nofilter" xml:space="preserve">
+    <value>Csak szűrő nélküli kiszolgálók</value>
+  </data>
+  <data name="default_settings_configuration_nofilter_tooltip" xml:space="preserve">
+    <value>A szerver nem érvényesítheti saját feketelistáját (szülői felügyelet, hirdetések blokkolása ...)</value>
+  </data>
+  <data name="tabitem_mainmenu" xml:space="preserve">
+    <value>Főmenü
+</value>
+  </data>
+  <data name="loader_administrative_rights_available" xml:space="preserve">
+    <value>Adminisztrációs jogok állnak rendelkezésre</value>
+  </data>
+  <data name="loader_administrative_rights_missing" xml:space="preserve">
+    <value>Hiányzó adminisztratív jogok!</value>
+  </data>
+  <data name="loader_checking_version" xml:space="preserve">
+    <value>Új verzió ellenőrzése. . .</value>
+  </data>
+  <data name="loader_new_version_found" xml:space="preserve">
+    <value>Újabb verzió található: {0}</value>
+  </data>
+  <data name="loader_starting_update" xml:space="preserve">
+    <value>A frissítés indítása . . .</value>
+  </data>
+  <data name="loader_update_failed" xml:space="preserve">
+    <value>Frissítés sikertelen, folytassa. . .</value>
+  </data>
+  <data name="loader_latest_version" xml:space="preserve">
+    <value>A legújabb verziót használja</value>
+  </data>
+  <data name="loader_unsigned" xml:space="preserve">
+    <value>aláírás nélküli</value>
+  </data>
+  <data name="loader_missing" xml:space="preserve">
+    <value>hiányzó</value>
+  </data>
+  <data name="loader_downloading_signature" xml:space="preserve">
+    <value>Az aláírás letöltése. . .</value>
+  </data>
+  <data name="loader_downloading_installer" xml:space="preserve">
+    <value>Telepítő letöltése. . .</value>
+  </data>
+  <data name="loader_starting" xml:space="preserve">
+    <value>Indítás. . .</value>
+  </data>
+  <data name="loader_validate_folder" xml:space="preserve">
+    <value>A {0} mappa érvényesítése</value>
+  </data>
+  <data name="loader_loading_network_cards" xml:space="preserve">
+    <value>A hálózati kártyák betöltése. . .</value>
+  </data>
+  <data name="loader_failed_loading" xml:space="preserve">
+    <value>Nem lehet betölteni {0}</value>
+  </data>
+  <data name="loader_successfully_loaded" xml:space="preserve">
+    <value>{0} sikeresen betöltött</value>
+  </data>
+  <data name="loader_loading" xml:space="preserve">
+    <value>Betöltés {0}. . .</value>
+  </data>
+  <data name="loader_missing_files" xml:space="preserve">
+    <value>A (z) {0} mappában hiányzó fájlok: \ n {1} \ n \ nA {2}</value>
+  </data>
+  <data name="loader_all_files_available" xml:space="preserve">
+    <value>Minden szükséges fájl megtalálható</value>
+  </data>
+  <data name="about" xml:space="preserve">
+    <value>Magunkról</value>
+  </data>
+  <data name="about_software" xml:space="preserve">
+    <value>Szoftver</value>
+  </data>
+  <data name="about_license" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="about_view_on_github" xml:space="preserve">
+    <value>Megtekintés a GitHub-on</value>
+  </data>
+  <data name="tabitem_querylog" xml:space="preserve">
+    <value>Lekérdezési napló</value>
+  </data>
+  <data name="querylog" xml:space="preserve">
+    <value>Lekérdezési napló</value>
+  </data>
+  <data name="querylog_waiting_for_data" xml:space="preserve">
+    <value>várakozás a DNS lekérdezésekre</value>
+  </data>
+  <data name="querylog_entry_count" xml:space="preserve">
+    <value>Bejegyzés:</value>
+  </data>
+  <data name="querylog_source_file" xml:space="preserve">
+    <value>Forrás:</value>
+  </data>
+  <data name="querylog_button_clear" xml:space="preserve">
+    <value>Lista törlése</value>
+  </data>
+  <data name="querylog_button_block" xml:space="preserve">
+    <value>Blokk kiválasztva</value>
+  </data>
+  <data name="domainblocklog" xml:space="preserve">
+    <value>Domain blokk napló</value>
+  </data>
+  <data name="domainblocklog_waiting_for_data" xml:space="preserve">
+    <value>várakozás a blokkolt DNS lekérdezésre</value>
+  </data>
+  <data name="domainblocklog_entry_count" xml:space="preserve">
+    <value>Bejegyzés:</value>
+  </data>
+  <data name="domainblocklog_source_file" xml:space="preserve">
+    <value>Forrás:</value>
+  </data>
+  <data name="domainblocklog_button_clear" xml:space="preserve">
+    <value>Lista törlése</value>
+  </data>
+  <data name="tabitem_domainblocklog" xml:space="preserve">
+    <value>Domain blokk napló</value>
+  </data>
+  <data name="tabitem_addressblocklog" xml:space="preserve">
+    <value>Cím blokk napló</value>
+  </data>
+  <data name="tabitem_domainblacklist" xml:space="preserve">
+    <value>Domain feketelista</value>
+  </data>
+  <data name="tabitem_addressblacklist" xml:space="preserve">
+    <value>Cím feketelista</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="settings_domain_blacklist" xml:space="preserve">
+    <value>A &quot;feketelista&quot; lap megjelenítése</value>
+  </data>
+  <data name="settings_address_blacklist" xml:space="preserve">
+    <value>A &quot;Cím feketelista&quot; fül megjelenítése</value>
+  </data>
+  <data name="settings_domain_block" xml:space="preserve">
+    <value>A &quot;Domain blokk naplója&quot; lap megjelenítése</value>
+  </data>
+  <data name="settings_address_block" xml:space="preserve">
+    <value>A &quot;Cím blokk naplója&quot; lap megjelenítése</value>
+  </data>
+  <data name="settings_query_log" xml:space="preserve">
+    <value>A &quot;Lekérdezési napló&quot; lap megjelenítése</value>
+  </data>
+  <data name="tabitem_resolvers" xml:space="preserve">
+    <value>Névkiszolgálók</value>
+  </data>
+  <data name="tabitem_advanced_settings" xml:space="preserve">
+    <value>További beállítások</value>
+  </data>
+  <data name="settings_advanced_settings" xml:space="preserve">
+    <value>A &quot;Speciális beállítások&quot; lap megjelenítése</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Igen</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>nem</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>mégsem</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="dialog_message_uninstall" xml:space="preserve">
+    <value>Szeretné eltávolítani a telepített Windows-szolgáltatást?</value>
+  </data>
+  <data name="dialog_uninstall_title" xml:space="preserve">
+    <value>A szolgáltatás eltávolítása</value>
+  </data>
+  <data name="advanced_settings_uninstall_title" xml:space="preserve">
+    <value>A szolgáltatás eltávolítása</value>
+  </data>
+  <data name="advanced_settings_uninstall_text" xml:space="preserve">
+    <value>A telepített Windows szerviz törlése</value>
+  </data>
+  <data name="advanced_settings_uninstall_button" xml:space="preserve">
+    <value>Távolítsa el a szolgáltatást</value>
+  </data>
+  <data name="default_settings_apply_settings" xml:space="preserve">
+    <value>Alkalmazza a beállításokat</value>
+  </data>
+  <data name="advanced_settings_dnscache" xml:space="preserve">
+    <value>DNS Cache</value>
+  </data>
+  <data name="resolvers_dnscrypt_mode_header" xml:space="preserve">
+    <value>DNSCrypt mód</value>
+  </data>
+  <data name="resolvers_dnscrypt_mode_description" xml:space="preserve">
+    <value>Automatikus módban, minden rendelkezésre álló kiszolgálót használatban van. A dnscrypt-proxy automatikusan kiválasztja a leggyorsabb felbontókat.</value>
+  </data>
+  <data name="resolvers_dnscrypt_automatic_mode" xml:space="preserve">
+    <value>Automatikus mód</value>
+  </data>
+  <data name="disabled" xml:space="preserve">
+    <value>Tiltva</value>
+  </data>
+  <data name="enabled" xml:space="preserve">
+    <value>Engedélyezve</value>
+  </data>
+  <data name="resolvers_available_resolvers_header" xml:space="preserve">
+    <value>Elérhető névkiszolgálók</value>
+  </data>
+  <data name="loader_redistributable_package_check" xml:space="preserve">
+    <value>A &quot;Microsoft Visual C++ Redistributable for Visual Studio 2017&quot; verziójának ellenőrzése</value>
+  </data>
+  <data name="loader_redistributable_package_already_installed" xml:space="preserve">
+    <value>A &quot;Microsoft Visual C++ Redistributable for Visual Studio 2017&quot; már telepítve van</value>
+  </data>
+  <data name="loader_redistributable_package_installing" xml:space="preserve">
+    <value>A &quot;Microsoft Visual C++ Redistributable for Visual Studio 2017&quot; telepítése</value>
+  </data>
+  <data name="loader_redistributable_package_ready" xml:space="preserve">
+    <value>A &quot;Microsoft Visual C++ Redistributable for Visual Studio 2017&quot; most telepítve van</value>
+  </data>
+  <data name="message_title_no_server_selected" xml:space="preserve">
+    <value>Nincs kiválasztott kiszolgáló szerver</value>
+  </data>
+  <data name="message_content_no_server_selected" xml:space="preserve">
+    <value>Legalább egy kiszolgálót kell kiválasztani. Ellenkező esetben a dnscrypt-proxy a kiválasztott szűrőkhöz tartozó összes kiszolgálót használja.</value>
+  </data>
+  <data name="message_title_service_not_running" xml:space="preserve">
+    <value>A szolgáltatás nem fut</value>
+  </data>
+  <data name="message_content_service_not_running" xml:space="preserve">
+    <value>Először el kell indítania a DnsCrypt szolgáltatást!</value>
+  </data>
+  <data name="message_title_uninstallation_successful" xml:space="preserve">
+    <value>Az eltávolítás sikeres</value>
+  </data>
+  <data name="message_content_uninstallation_successful" xml:space="preserve">
+    <value>Az eltávolítás sikeres volt! A DNS-kérelmek nincsenek már titkosított formában.</value>
+  </data>
+  <data name="message_title_uninstallation_error" xml:space="preserve">
+    <value>Eltávolítási hiba</value>
+  </data>
+  <data name="message_content_uninstallation_error" xml:space="preserve">
+    <value>Az eltávolítás nem hajtható végre. Próbáld meg manuálisan leállítani a szolgáltatást és újra eltávolítani.</value>
+  </data>
+  <data name="open_log_directory" xml:space="preserve">
+    <value>Naplókönyvtár megnyitása</value>
+  </data>
+  <data name="settings_update_auto" xml:space="preserve">
+    <value>Frissítések keresése az indításkor</value>
+  </data>
+  <data name="settings_update_channel" xml:space="preserve">
+    <value>Csatorna frissítése:</value>
+  </data>
+  <data name="advanced_settings_dnscache_content" xml:space="preserve">
+    <value>DNS-gyorsítótár a késleltetés és a kimenő forgalom csökkentése érdekében</value>
+  </data>
+  <data name="advanced_settings_blockipv6" xml:space="preserve">
+    <value>Az IPv6 blokkolása</value>
+  </data>
+  <data name="advanced_settings_blockipv6_content" xml:space="preserve">
+    <value>Azonnal válaszoljon az IPv6-hez kapcsolódó lekérdezésekre, üres válasz esetén</value>
+  </data>
+  <data name="advanced_settings_forcetcp" xml:space="preserve">
+    <value>TCP használata (kényszerítése)</value>
+  </data>
+  <data name="advanced_settings_forcetcp_content" xml:space="preserve">
+    <value>Mindig használja a TCP-t, hogy csatlakozzon az upstream kiszolgálókhoz</value>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>Hozzáad</value>
+  </data>
+  <data name="message_title_new_whitelist_rule" xml:space="preserve">
+    <value>Új domain engedélyeztetési szabály hozzáadása</value>
+  </data>
+  <data name="message_content_new_whitelist_rule" xml:space="preserve">
+    <value>Példa: * .example.com, hirdetések *, * sex *, hozzáadhat vesszővel elválasztott szabályok listáját</value>
+  </data>
+  <data name="message_title_new_blacklist_rule" xml:space="preserve">
+    <value>Új domain feketelista-szabály hozzáadása</value>
+  </data>
+  <data name="message_content_new_blacklist_rule" xml:space="preserve">
+    <value>Példa: * .example.com, hirdetések *, * sex *, akkor is hozzáadhat vesszõvel elválasztott szabályok listáját, egy fájlt, amely a file-val kezdődik: my-custom-rules.txt vagy egy távoli URL-t, amely http-val kezdődik : // vagy https: //.</value>
+  </data>
+  <data name="working_dialog_title" xml:space="preserve">
+    <value>Listák összevonása ...</value>
+  </data>
+  <data name="button_select_path" xml:space="preserve">
+    <value>Válasszon útvonalat</value>
+  </data>
+  <data name="button_blacklist_build" xml:space="preserve">
+    <value>Dnscrypt-proxy feketelista készítése</value>
+  </data>
+  <data name="button_blacklist_import" xml:space="preserve">
+    <value>Importálja a meglévő feketelista-szabályokat</value>
+  </data>
+  <data name="button_blacklist_export" xml:space="preserve">
+    <value>Feketelista szabályok exportálása</value>
+  </data>
+  <data name="button_blacklist_remove" xml:space="preserve">
+    <value>Vegye ki a kiválasztott feketelista szabályt</value>
+  </data>
+  <data name="button_blacklist_add" xml:space="preserve">
+    <value>Új feketelista-szabály hozzáadása</value>
+  </data>
+  <data name="button_whitelist_import" xml:space="preserve">
+    <value>Meglévő engedélyezési szabályok inportálása</value>
+  </data>
+  <data name="button_whitelist_export" xml:space="preserve">
+    <value>Engedélyezett szabályok exportálása</value>
+  </data>
+  <data name="button_whitelist_remove" xml:space="preserve">
+    <value>Kiválasztott engedélyezési szabályok eltávolítása</value>
+  </data>
+  <data name="button_whitelist_add" xml:space="preserve">
+    <value>Új engedélyezési szabály hozzáadása</value>
+  </data>
+  <data name="whitelist_rules_header" xml:space="preserve">
+    <value>Engedélyező szabályok</value>
+  </data>
+  <data name="whitelist_rules_sub_header" xml:space="preserve">
+    <value>(minden bejegyzést figyelmen kívül hagynak a feketelista-előállítás során)</value>
+  </data>
+  <data name="whitelist_rules_path" xml:space="preserve">
+    <value>Engedélyező szabályok:</value>
+  </data>
+  <data name="blacklist_rules_header" xml:space="preserve">
+    <value>Feketelista szabályok</value>
+  </data>
+  <data name="blacklist_rules_sub_header" xml:space="preserve">
+    <value>(az összes bejegyzést egy feketelista összevonja)</value>
+  </data>
+  <data name="blacklist_rules_path" xml:space="preserve">
+    <value>Feketelista szabályok:</value>
+  </data>
+  <data name="blacklist_path" xml:space="preserve">
+    <value>Feketelista:</value>
+  </data>
+  <data name="blacklist_header" xml:space="preserve">
+    <value>Domain Feketelista és engedélyezők listája</value>
+  </data>
+  <data name="advanced_settings_globalresolver" xml:space="preserve">
+    <value>Globális névkiszolgáló</value>
+  </data>
+  <data name="advanced_settings_globalresolver_content" xml:space="preserve">
+    <value>Ha azt szeretné, hogy ez a számítógép mások számára átjáró eszközként működjön (pl. Okos telefonok vagy más számítógépek)</value>
+  </data>
+  <data name="advanced_settings_fallback_resolver" xml:space="preserve">
+    <value>Tartalék névkiszolgátó</value>
+  </data>
+  <data name="advanced_settings_fallback_resolver_content" xml:space="preserve">
+    <value>Ez egy normál, nem titkosított DNS-névkiszolgátó, amelyet csak az egyszeri lekérdezésekhez használnak a kezdeti felbontók listájának lekérésekor, és csak akkor, ha a rendszer DNS-konfigurációja nem működik. Kínában élő emberek számára szükség lehet a 114.114.114.114:53 használatára.</value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="trayicon_tooltip" xml:space="preserve">
+    <value>Egyszerü DNSCrypt</value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="trayicon_exit" xml:space="preserve">
+    <value>Kilépés</value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="address_settings_listen_addresses" xml:space="preserve">
+    <value>Listen Addresses</value>
+  </data>
+  <data name="address_settings_manage_listen_addresses" xml:space="preserve">
+    <value>Manage Listen Addresses</value>
+  </data>
+  <data name="address_settings_description" xml:space="preserve">
+    <value>List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.</value>
+  </data>
+  <data name="address_settings_add" xml:space="preserve">
+    <value>Add new listen address</value>
+  </data>
+  <data name="address_settings_remove" xml:space="preserve">
+    <value>Remove selected listen address</value>
+  </data>
+  <data name="address_settings_restore" xml:space="preserve">
+    <value>Restore default listen addresses</value>
+  </data>
+  <data name="button_blacklist_clear" xml:space="preserve">
+    <value>Clear all blacklist rules</value>
+  </data>
+  <data name="settings_tray_mode" xml:space="preserve">
+    <value>Minimize to tray when closing</value>
+  </data>
+  <data name="settings_start_in_tray" xml:space="preserve">
+    <value>Start Simple DNSCrypt in tray</value>
+  </data>
+  <data name="settings_update_silent" xml:space="preserve">
+    <value>Silently install new versions</value>
+  </data>
+  <data name="proxy_proxies" xml:space="preserve">
+    <value>Proxies</value>
+  </data>
+  <data name="proxy_manage_proxies" xml:space="preserve">
+    <value>Manage Proxies</value>
+  </data>
+  <data name="proxy_http_header" xml:space="preserve">
+    <value>HTTP/HTTPS proxy</value>
+  </data>
+  <data name="proxy_http_sub" xml:space="preserve">
+    <value>Only for DoH servers</value>
+  </data>
+  <data name="proxy_socks_header" xml:space="preserve">
+    <value>SOCKS proxy</value>
+  </data>
+  <data name="proxy_socks_sub" xml:space="preserve">
+    <value>You can route all TCP connections to a local Tor node. Tor doesn&apos;t support UDP, so you should enable Force TCP (Advanced Settings) as well.</value>
+  </data>
+  <data name="advanced_settings_netprobe_timeout" xml:space="preserve">
+    <value>Netprobe Timeout</value>
+  </data>
+  <data name="advanced_settings_netprobe_timeout_content" xml:space="preserve">
+    <value>Maximum time (in seconds) to wait for network connectivity before initializing the proxy. Useful if the proxy is automatically started at boot, and network connectivity is not guaranteed to be immediately available. Use 0 to disable.</value>
+  </data>
+  <data name="default_settings_configuration_dnscrypt" xml:space="preserve">
+    <value>DNSCrypt</value>
+  </data>
+  <data name="default_settings_configuration_dnscrypt_tooltip" xml:space="preserve">
+    <value>Use servers implementing the DNSCrypt protocol</value>
+  </data>
+  <data name="default_settings_configuration_doh" xml:space="preserve">
+    <value>DNS-over-HTTPS</value>
+  </data>
+  <data name="default_settings_configuration_doh_tooltip" xml:space="preserve">
+    <value>Use servers implementing the DNS-over-HTTPS protocol</value>
+  </data>
+  <data name="loader_restore_config" xml:space="preserve">
+    <value>Restore {0}</value>
+  </data>
+  <data name="settings_backup_and_restore_config" xml:space="preserve">
+    <value>Backup and restore dnscrypt configuration on update</value>
+  </data>
+  <data name="tabitem_cloakandforward" xml:space="preserve">
+    <value>Cloak and Forward</value>
+  </data>
+  <data name="cloaking" xml:space="preserve">
+    <value>Cloaking</value>
+  </data>
+  <data name="cloaking_path" xml:space="preserve">
+    <value>Cloaking Rules:</value>
+  </data>
+  <data name="cloaking_rules_header" xml:space="preserve">
+    <value>Cloaking Rules</value>
+  </data>
+  <data name="cloaking_rules_sub_header" xml:space="preserve">
+    <value>(active cloaking rules)</value>
+  </data>
+  <data name="button_cloaking_add" xml:space="preserve">
+    <value>Add a new cloaking rule</value>
+  </data>
+  <data name="button_cloaking_remove" xml:space="preserve">
+    <value>Remove selected cloaking rule</value>
+  </data>
+  <data name="button_cloaking_import" xml:space="preserve">
+    <value>Import existing cloaking rules</value>
+  </data>
+  <data name="button_cloaking_export" xml:space="preserve">
+    <value>Export cloaking rules</value>
+  </data>
+  <data name="rule_window_cloaking_header" xml:space="preserve">
+    <value>Add new cloaking rule</value>
+  </data>
+  <data name="rule_window_cloaking_key_text" xml:space="preserve">
+    <value>Rule source (eg: www.google.*)</value>
+  </data>
+  <data name="rule_window_cloaking_value_text" xml:space="preserve">
+    <value>Rule target (eg: forcesafesearch.google.com)</value>
+  </data>
+  <data name="forwarding" xml:space="preserve">
+    <value>Forwarding</value>
+  </data>
+  <data name="forwarding_path" xml:space="preserve">
+    <value>Forwarding Rules:</value>
+  </data>
+  <data name="forwarding_rules_header" xml:space="preserve">
+    <value>Forwarding Rules</value>
+  </data>
+  <data name="forwarding_rules_sub_header" xml:space="preserve">
+    <value>(active forwarding rules)</value>
+  </data>
+  <data name="button_forwarding_add" xml:space="preserve">
+    <value>Add a new forwarding rule</value>
+  </data>
+  <data name="button_forwarding_remove" xml:space="preserve">
+    <value>Remove selected forwarding rule</value>
+  </data>
+  <data name="button_forwarding_import" xml:space="preserve">
+    <value>Import existing forwarding rules</value>
+  </data>
+  <data name="button_forwarding_export" xml:space="preserve">
+    <value>Export forwarding rules</value>
+  </data>
+  <data name="rule_window_forwarding_header" xml:space="preserve">
+    <value>Add new forwarding rule</value>
+  </data>
+  <data name="rule_window_forwarding_key_text" xml:space="preserve">
+    <value>Rule source (eg: example.com)</value>
+  </data>
+  <data name="rule_window_forwarding_value_text" xml:space="preserve">
+    <value>Rule target (eg: 9.9.9.9,8.8.8.8)</value>
+  </data>
+  <data name="rule_window_add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="rule_window_abort" xml:space="preserve">
+    <value>Abort</value>
+  </data>
+  <data name="settings_cloak_and_forward" xml:space="preserve">
+    <value>Show &quot;Cloak and Forward&quot; Tab</value>
+  </data>
+</root>

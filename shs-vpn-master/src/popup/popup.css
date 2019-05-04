@@ -1,0 +1,118 @@
+@keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    display: block;
+  }
+  100% {
+    display: 1;
+    display: block;
+  }
+}
+
+html{
+  width: 420px;
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
+input, button, select, html{
+  font-family: "Open Sans";
+  font-size: inherit;
+}
+
+html{
+  font-size: 1.3em;
+}
+
+button{
+  background: white;
+  border: 2px solid #fecd0f;
+  border-radius: 5px;
+  text-align: center;
+  width: 100px;
+  margin: 5px auto;
+  display: block;
+  cursor: pointer;
+}
+
+#check{
+  font-size: 1.5em;
+}
+
+#check *, #check *:before, #check *:after {
+  transition: .35s ease-in-out;
+  cursor: pointer;
+}
+
+.checkbox-label{
+  display: block;
+  background: #f3f3f3;
+  height: 50px;
+  width: 80px;
+  border-radius: 50px;
+  margin: 50px auto;
+  position: relative;
+  box-shadow: 0 0 0 2px #dddddd;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.checkbox-label .on {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  opacity: 1;
+  min-width: 300px;
+  line-height: 50px;
+  opacity: 0;
+  color: #fecd0f;
+}
+.checkbox-label .off {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  right: 100px;
+  text-align: right;
+  opacity: 1;
+  min-width: 300px;
+  line-height: 50px;
+  opacity: 1;
+  color: #bbbbbb;
+}
+.checkbox-label:before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  background: white;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px #dddddd;
+}
+
+.checkbox {
+  position: absolute;
+  left: -5000px;
+}
+.checkbox:checked + .checkbox-label {
+  background: #fecd0f;
+  box-shadow: 0 0 0 2px;
+}
+.checkbox:checked + .checkbox-label .on {
+  left: 100px;
+  opacity: 1;
+}
+.checkbox:checked + .checkbox-label .off {
+  right: 0px;
+  opacity: 0;
+}
+.checkbox:checked + .checkbox-label:before {
+  left: 30px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 0 0 3px #fecd0f;
+}

@@ -1,0 +1,49 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 280px;
+  height: 360px;
+  color: #0c0c0d;
+  background-color: #ededf0;
+  font: caption;
+  font-size: 13px;
+  -moz-user-select: none;
+}
+
+body > main {
+  height: 100%;
+}
+
+.lockie {
+  display: block;
+  margin: 4em auto 0;
+  width: 200px;
+}
+
+.unlock-content {
+  margin: 1em auto 3em;
+  width: 240px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.unlock-content > h1 {
+  font-size: 2.5em;
+  font-weight: 300;
+  text-align: center;
+  margin: 0 0 0.25em;
+}
+
+.unlock-content > h2 {
+  font-size: 1.15em;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  text-transform: lowercase;
+  margin: 0;
+}

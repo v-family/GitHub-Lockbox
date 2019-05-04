@@ -1,0 +1,27 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    ["@babel/preset-env", {
+      "targets": {"browsers": ["firefox >= 56"]},
+      "useBuiltins": true,
+      "modules": false
+    }]
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-object-rest-spread",
+    "@babel/plugin-syntax-async-generators"
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        "minify"
+      ]
+    },
+    "test": {
+      "plugins": [
+        "istanbul",
+        "rewire"
+      ]
+    }
+  }
+}

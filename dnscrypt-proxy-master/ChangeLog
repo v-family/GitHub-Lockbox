@@ -1,0 +1,189 @@
+* Version 2.0.22
+ - The previous version had issues with the .org TLD when used in
+conjunction with dnsmasq. This has been fixed.
+
+* Version 2.0.21
+ - The change to run the Windows service as `NT AUTHORITY\NetworkService`
+has been reverted, as it was reported to break logging (Windows only).
+
+* Version 2.0.20
+ - Startup is now *way* faster, especially when using DoH servers.
+ - A new action: `CLOAK` is logged when queries are being cloaked.
+ - A cloaking rule can now map to multiple IPv4 and IPv6 addresses,
+with load-balancing.
+ - New option: `refused_code_in_responses` to return (or not) a
+`REFUSED` code on blacklisted queries. This is disabled by default, in
+order to work around a bug in Android Pie.
+ - Time-based restrictions are now properly handled in the
+generate-domains-blacklist.py script.
+ - Other improvements have been made to the `generate-domains-blacklist.py`
+script.
+ - The Windows service is now installed as `NT AUTHORITY\NetworkService`.
+
+* Version 2.0.19
+ - The value for `netprobe_timeout` was read from the command-line, but
+not from the configuration file any more. This is a regression introduced
+in the previous version, that has been fixed.
+ - The default value for netprobe timeouts has been raised to 60 seconds.
+ - A hash of the body is added to query parameters when sending DoH
+queries with the POST method in order to work around badly configured
+proxies.
+
+* Version 2.0.18
+ - Official builds now support TLS 1.3.
+ - The timeout for the initial connectivity check can now be set from
+the command line.
+ - An `Accept:` header is now always sent with `GET` queries.
+ - BOMs are now ignored in configuration files.
+ - In addition to SOCKS, HTTP and HTTPS proxies are now supported for
+DoH servers.
+
+* Version 2.0.17
+ - Go >= 1.11 is now supported
+ - The flipside is that Windows XP is not supported any more :(
+ - When dropping privileges, there is no supervisor process any more.
+ - DNS options used to be cleared from DNS queries, with the exception
+of flags and payload sizes. This is not the case any more.
+ - DoH queries are smaller, since workarounds are not required any more
+after Google updated their implementation.
+
+* Version 2.0.16
+ - On Unix-like systems, the server can run as an unprivileged user,
+and the main process will automatically restart if an error occurs.
+ - pledge() on OpenBSD.
+ - New "offline" mode to serve queries locally without contacting any
+upstream servers. This can be especially useful along with the
+cloaking module for local development.
+ - New logo.
+ - TTL of OPT records is properly ignored by the caching module.
+ - The proxy doesn't quit any more if new TCP connections cannot be
+created.
+
+* Version 2.0.15
+ - Support for proxies (HTTP/SOCKS) was added. All it takes to route
+all TCP queries to Tor is add `proxy = "socks5://127.0.0.1:9050"` to
+the configuration file.
+ - Querylog files have a new record indicating the outcome of each
+transaction.
+ - Pre-built binaries for Linux are statically linked on all
+architectures.
+
+* Version 2.0.14
+ - Supports DNS-over-HTTPS draft 08.
+ - Netprobes don't use port 0 by default, as this causes issues with
+Little Snitch and FreeBSD.
+
+* Version 2.0.13
+ - This version fixes a crash when using DoH for queries whose size
+were a multiple of the block size. Reported by @char101, thanks!
+
+* Version 2.0.12
+ - Further compatibility fixes for Alpine Linux/i386 and Android/i386
+have been made. Thanks to @aead for his help!
+ - The proxy will now wait for network connectivity before starting.
+This is useful if the proxy is automatically started at boot, possibly
+before the network is fully configured.
+ - The IPv6 blocking module now returns synthetic SOA records to
+improve compatibility with downstream resolvers and stub resolvers.
+
+* Version 2.0.11
+ - This release fixes a long-standing bug that caused the proxy to
+block or crash when Position-Independent Executables were produced.
+This bug only showed up when compiled on (not for) Alpine Linux and
+Android, for some CPU architectures.
+ - New configuration settings: cache_neg_min_ttl and
+cache_neg_max_ttl, to clamp the negative caching TTL.
+
+* Version 2.0.10
+ - This version fixes a crash when an incomplete size is sent by a
+local client for a query over TCP.
+ - Slight performance improvement of DNSCrypt on non-Intel CPUs such
+as Raspberry Pi.
+
+* Version 2.0.9
+ - Whitelists have been implemented: one a name matches a pattern in
+the whitelist, rules from the name-based and IP-based blacklists will
+be bypassed. Whitelists support the same patterns as blacklists, as
+well as time-based rules, so that some website can be normally
+blocked, but accessible on specific days or times of the day.
+ - Lists are now faster to load, and large lists require significantly
+less memory than before.
+ - New options have been added to disable TLS session tickets as well
+as use a specific cipher suite. See the example configuration file for
+a recommended configuration to speed up DoH servers on ARM such as
+Android devices and Raspberry Pi.
+ - The `-service install` command now remembers what the current
+directory was when the service was installed, in order to later load
+configuration files with relative paths.
+ - DoH: The "Cache-Control: max-age" header is now ignored.
+ - Patterns can now be prefixed with `=` to do exact matching:
+`=example.com` matches `example.com` but will not match `www.example.com`.
+ - Patterns are now fully supported by the cloaking module.
+ - A new option was added to use a specific cipher suite instead of
+the server's provided one. Using RSA+ChaChaPoly over ECDSA+AES-GCM has
+shown to decrease CPU usage and latency when connecting to Cloudflare,
+especially on Mips and ARM systems.
+ - The ephemeral keys mode of dnscrypt-proxy v1.x was reimplemented: this
+creates a new unique key for every single query.
+
+* Version 2.0.8
+ - Multiple URLs can be defined for a source in order to improve
+resiliency when servers are temporarily unreachable.
+ - Connections over IPv6 will be preferred over IPv4 for DoH servers
+when using a fallback resolver if `ipv6_servers` is set.
+ - Improvements have been made to the example systemd configuration
+files.
+ - The chacha20 implementation was updated to possibly fix a bug on
+Android/x86.
+ - `generate-domains-blacklist.py` can now parse dnsmasq-style rules.
+ - FreeBSD/arm builds have been added.
+ - `dnscrypt-proxy -list -json` and `-list-all -json` now include the
+remove servers names and IP addresses.
+
+* Version 2.0.7
+ - Bug fix: optional ports were not properly parsed with IPv6
+addresses -- thanks to @bleeee for the report and fix.
+ - Bug fix: truncate TCP queries to the prefixed length.
+ - Certificates are force-refreshed after a time jump (e.g. when a
+system resumes from hibernation).
+
+* Version 2.0.6
+ - Automatic log files rotation was finally implemented.
+ - A new -pidfile command-line option to write the PID file was added.
+
+* Version 2.0.5
+ - Fixes a crash occasionally happening when using DoH servers, with
+stamps not containing any IP addresses, a DNSSEC-signed name, a
+non-working system DNS configuration, and a fallback server supporting
+DNSSEC.
+
+* Version 2.0.4
+ - Fixes a regression with truncated packets. Thanks to @mazesy and
+@the-w1nd for spotting a case triggering this!
+
+* Version 2.0.3
+ - Load balancing: resolvers that respond promptly, but with bogus
+responses are now gradually removed from the preferred pool.
+ - Due to popular request, Android binaries are now available! Thanks
+to @sporif for his help on getting these built.
+ - Binaries are built using Go 1.10-final.
+
+* Version 2.0.2
+ - Properly error out on FreeBSD and other platforms where built-in
+service installation is not supported yet.
+ - Improved load-balancing algorithm, which should result in lower
+latency.
+
+* Version 2.0.1
+ - Cached source data were not redownloaded if the proxy was used
+without interruption. This has been fixed.
+ - If the network is down at startup time, fall back to cached source
+data, even if is it out of date, and schedule an immediate update
+after the networks is back.
+ - RTT estimation for DNS-over-HTTP/2 servers was off. This has been
+fixed.
+ - The generate-domains-blacklist script now has a configurable
+timeout value, and can produce time-based rules.
+ - The timeout parameter in the example configuration file didn't had
+the correct name; this has been fixed.
+ - Cache: TTLs are now decreasing.

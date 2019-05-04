@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
+    <link rel="stylesheet" href="popup.css"/>
+  </head>
+  <body>
+    <div id = "check">
+      <input class="checkbox" id="checkbox1" type="checkbox" checked/>
+      <label for="checkbox1" class="checkbox-label" checked>
+        <span class="on">VPN enabled</span>
+        <span class="off">VPN disabled</span>
+      </label>
+    </div>
+    <button>Reload</button>
+    <section>
+      <div id = "connected" hidden></div>
+      <div id = "not-connected" hidden></div>
+      Pick a server:
+      <select>
+        <option value = "HTTPS shrunkunseeingbacklight.info:443" selected>New server (farly fast)</option>
+        <option value = "SOCKS5 34.223.229.173:443; SOCKS 34.223.229.173:443">My server (might not work)</option>
+        <option value = "HTTPS free-uk01.doublec1ick.com:11443">Old server (not recommended, sometimes breaks)</option>
+      </select>
+    </section>
+    <p>Loading...</p>
+    <script src = "popup.js"></script>
+  </body>
+</html>

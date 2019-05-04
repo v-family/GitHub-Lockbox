@@ -1,0 +1,239 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* global ADDON_INSTALL, ADDON_UPGRADE, ADDON_UNINSTALL */
+/* eslint-disable no-unused-vars */
+
+const { utils: Cu } = Components;
+
+Cu.import("resource://gre/modules/Services.jsm");
+
+const REMEMBER_SIGNONS_PREF = "signon.rememberSignons";
+const ORIGINAL_REMEMBER_SIGNONS_PREF =
+      "extensions.lockbox.originalRememberSignons";
+
+// In order to allow us to register new telemetry events in the middle of a
+// Firefox session, we currently need to ensure that our events have a unique
+// category name. In order to do this, every time we update the events in any
+// way, we must also give them a unique category name. If you're updating the
+// events, please increment the version number here by 1.
+const TELEMETRY_CATEGORY = "lockboxv1";
+
+class EventDispatcher {
+  constructor() {
+    this.pendingEvents = [];
+  }
+
+  record(event) {
+    if (this.port) {
+      this.port.postMessage(event);
+      return true;
+    }
+
+    this.pendingEvents.push(event);
+    return false;
+  }
+
+  connect(port) {
+    this.port = port;
+
+    const events = this.pendingEvents;
+    this.pendingEvents = [];
+    for (let evt of events) {
+      this.port.postMessage(evt);
+    }
+  }
+}
+
+const dispatcher = new EventDispatcher();
+function startup({webExtension}, reason) {
+  try {
+    Services.telemetry.registerEvents(TELEMETRY_CATEGORY, {
+      "startup": {
+        methods: ["startup"],
+        objects: ["addon", "webextension"],
+      },
+      "iconClick": {
+        methods: ["iconClick"],
+        objects: ["toolbar"],
+      },
+      "displayView": {
+        methods: ["render"],
+        objects: ["firstrun", "popupUnlock", "manage", "doorhanger"],
+      },
+      "itemAdding": {
+        methods: ["itemAdding"],
+        objects: ["manage"],
+      },
+      "itemUpdating": {
+        methods: ["itemUpdating"],
+        objects: ["manage"],
+      },
+      "itemDeleting": {
+        methods: ["itemDeleting"],
+        objects: ["manage"],
+      },
+      "itemAdded": {
+        methods: ["itemAdded"],
+        objects: ["manage"],
+        extra_keys: ["itemid"],
+      },
+      "itemUpdated": {
+        methods: ["itemUpdated"],
+        objects: ["manage"],
+        extra_keys: ["itemid"],
+      },
+      "itemDeleted": {
+        methods: ["itemDeleted"],
+        objects: ["manage"],
+        extra_keys: ["itemid"],
+      },
+      "itemSelected": {
+        methods: ["itemSelected"],
+        objects: ["manage", "doorhanger"],
+      },
+      "addClick": {
+        methods: ["addClick"],
+        objects: ["manage"],
+      },
+      "datastore": {
+        methods: ["added", "updated", "deleted"],
+        objects: ["datastore"],
+        extra_keys: ["itemid", "fields"],
+      },
+      "feedback": {
+        methods: ["feedbackClick"],
+        objects: ["manage"],
+      },
+      "faq": {
+        methods: ["faqClick"],
+        objects: ["manage"],
+      },
+      "itemCopied": {
+        methods: ["usernameCopied", "passwordCopied"],
+        objects: ["manage", "doorhanger"],
+      },
+      "resetRequested": {
+        methods: ["resetRequested"],
+        objects: ["settings"],
+      },
+      "resetCompleted": {
+        methods: ["resetCompleted"],
+        objects: ["settings"],
+      },
+      "setupGuest": {
+        methods: ["click"],
+        objects: ["welcomeGuest"],
+      },
+      "fxaStart": {
+        methods: ["click"],
+        objects: ["welcomeSignin", "manageAcctCreate", "manageAcctSignin", "unlockSignin"],
+      },
+      "fxaAuth": {
+        methods: ["fxaUpgrade", "fxaSignin", "fxaSignout"],
+        objects: ["accounts"],
+      },
+      "fxaFail": {
+        methods: ["fxaFailed"],
+        objects: ["accounts"],
+        extra_keys: ["message"],
+      },
+    });
+  } catch (e) {
+    if (e.message === "Attempt to register event that is already registered.") {
+      // eslint-disable-next-line no-console
+      console.log("telemetry events already registered; skipping registration");
+    } else {
+      throw e;
+    }
+  }
+
+  try {
+    Services.telemetry.registerScalars(TELEMETRY_CATEGORY, {
+      "datastoreCount": {
+        kind: Services.telemetry.SCALAR_TYPE_COUNT,
+        keyed: false,
+        record_on_release: false,
+        expired: false,
+      },
+    });
+  } catch (e) {
+    if (e.message === "Attempt to register scalar that is already registered.") {
+      // eslint-disable-next-line no-console
+      console.log("telemetry scalar already registered; skipping registration");
+    } else {
+      throw e;
+    }
+  }
+
+  webExtension.startup().then(({browser}) => {
+    Services.telemetry.recordEvent(TELEMETRY_CATEGORY, "startup",
+                                   "webextension");
+    browser.runtime.onMessage.addListener((message, sender, respond) => {
+      switch (message.type) {
+      case "telemetry_event":
+        Services.telemetry.recordEvent(
+          TELEMETRY_CATEGORY, message.method, message.object, null,
+          message.extra || null
+        );
+        respond({});
+        break;
+      case "telemetry_scalar":
+        Services.telemetry.scalarSet(
+          `${TELEMETRY_CATEGORY}.${message.name}`, message.value
+        );
+        respond({});
+      }
+    });
+
+    browser.runtime.onConnect.addListener((port) => {
+      dispatcher.connect(port);
+    });
+  });
+}
+
+function shutdown(data, reason) {}
+
+function install(data, reason) {
+  if (reason === ADDON_INSTALL) {
+    // Remember the original value for `signons.rememberSignons` so we can
+    // restore it during uninstall, then disable it so it doesn't conflict with
+    // us.
+    Services.prefs.setBoolPref(
+      ORIGINAL_REMEMBER_SIGNONS_PREF,
+      Services.prefs.getBoolPref(REMEMBER_SIGNONS_PREF)
+    );
+    Services.prefs.setBoolPref(REMEMBER_SIGNONS_PREF, false);
+
+    dispatcher.record({ type: "extension_installed" });
+  } else if (reason === ADDON_UPGRADE) {
+    dispatcher.record({
+      type: "extension_upgraded",
+      version: data.newVersion,
+      oldVersion: data.oldVersion,
+    });
+  }
+}
+
+function uninstall(data, reason) {
+  if (reason === ADDON_UNINSTALL) {
+    // Restore the original value for `signons.rememberSignons`.
+    if (Services.prefs.getBoolPref(REMEMBER_SIGNONS_PREF) === false) {
+      Services.prefs.setBoolPref(
+        REMEMBER_SIGNONS_PREF,
+        Services.prefs.getBoolPref(ORIGINAL_REMEMBER_SIGNONS_PREF)
+      );
+    }
+    Services.prefs.clearUserPref(ORIGINAL_REMEMBER_SIGNONS_PREF);
+  }
+}
+
+// We need to reference these functions so that babel-plugin-rewire can see
+// them for our tests.
+startup;
+shutdown;
+install;
+uninstall;
+dispatcher;
+EventDispatcher;
